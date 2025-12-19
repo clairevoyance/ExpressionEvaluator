@@ -30,3 +30,4 @@
 /Users/abhisheksahai/Programming/Interview-Tests/ExpressionEvaluator/ExpressionEvaluator.Api/obj/Debug/net8.0/ExpressionEvaluator.Api.pdb
 /Users/abhisheksahai/Programming/Interview-Tests/ExpressionEvaluator/ExpressionEvaluator.Api/obj/Debug/net8.0/ExpressionEvaluator.Api.genruntimeconfig.cache
 /Users/abhisheksahai/Programming/Interview-Tests/ExpressionEvaluator/ExpressionEvaluator.Api/obj/Debug/net8.0/ref/ExpressionEvaluator.Api.dll
+/Users/abhisheksahai/Programming/Interview-Tests/ExpressionEvaluator/ExpressionEvaluator.Api/obj/Debug/net8.0/ExpressionEvaluator.Api.sourcelink.json
