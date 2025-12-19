@@ -1,0 +1,6 @@
+@ExpressionEvaluator.Api_HostAddress = http://localhost:5030
+
+GET {{ExpressionEvaluator.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
