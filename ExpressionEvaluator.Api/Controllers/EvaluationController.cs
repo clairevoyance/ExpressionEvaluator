@@ -1,4 +1,5 @@
 using ExpressionEvaluator.Api.Models;
+using ExpressionEvaluator.Api.Data;
 using ExpressionEvaluator.Api.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -9,6 +10,16 @@ namespace ExpressionEvaluator.Api.Controllers
     [ApiController]
     public class EvaluationController : ControllerBase
     {
+
+        private readonly ExpressionDbContext _db;
+        private readonly ExpressionEvaluatorService _evaluator;
+
+        public EvaluationController(ExpressionDbContext db, ExpressionEvaluatorService evaluator)
+        {
+            _db = db;
+            _evaluator = evaluator;
+        }
+
         [HttpPost("add")]
         public IActionResult Add([FromBody] AddRequest request)
         {
@@ -17,11 +28,20 @@ namespace ExpressionEvaluator.Api.Controllers
         }
 
         [HttpPost("evaluate")]
-        public IActionResult Evaluate([FromBody] ExpressionRequest request, [FromServices] ExpressionEvaluatorService evaluator)
+        public IActionResult Evaluate([FromBody] ExpressionRequest request)
         {
             try
             {
-                var result = evaluator.Evaluate(request.Expression);
+                var result = _evaluator.Evaluate(request.Expression);
+
+                var record = new ExpressionRecord {
+                    Expression = request.Expression,
+                    Result = result.ToString()
+                };
+
+                _db.Expressions.Add(record);
+                _db.SaveChanges();
+                
                 return Ok(new { Result = result });
             }
             catch (Exception ex)
