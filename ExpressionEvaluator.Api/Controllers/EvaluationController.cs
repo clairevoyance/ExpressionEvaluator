@@ -1,8 +1,8 @@
 using ExpressionEvaluator.Api.Models;
 using ExpressionEvaluator.Api.Data;
 using ExpressionEvaluator.Api.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace ExpressionEvaluator.Api.Controllers
 {
@@ -48,6 +48,21 @@ namespace ExpressionEvaluator.Api.Controllers
             {
                 return BadRequest(new { Error = ex.Message });
             }
+        }
+
+        [HttpGet("history")]
+        public IActionResult History([FromQuery] string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+                return BadRequest("Result value cannot be empty.");
+
+            var sql = "SELECT * FROM Expressions WHERE Result = {0} ORDER BY CreatedAt DESC";
+
+            var results = _db.Expressions
+                            .FromSqlRaw(sql, value)
+                            .ToList();
+
+            return Ok(results);
         }
     }
 }
