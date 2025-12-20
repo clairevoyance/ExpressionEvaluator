@@ -27,3 +27,13 @@ cd ExpressionEvaluator.Api
 dotnet restore
 dotnet build
 dotnet run
+```
+
+### Endpoint for evaluating the expression
+- POST /api/Evaluation/evaluate
+- Request Body - {
+  "expression": "string"
+}
+
+### Endpoint for returning the expression based on result
+GET /api/Evaluation/history?value={resultString}
