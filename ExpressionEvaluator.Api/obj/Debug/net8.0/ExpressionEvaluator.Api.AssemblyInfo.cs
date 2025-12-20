@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ExpressionEvaluator.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7bd85d37fb8b4464e5c7fd085ce3eec367f71c6e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+01e09afe190c1e8492581081cc5469f796d92a9c")]
 [assembly: System.Reflection.AssemblyProductAttribute("ExpressionEvaluator.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ExpressionEvaluator.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
